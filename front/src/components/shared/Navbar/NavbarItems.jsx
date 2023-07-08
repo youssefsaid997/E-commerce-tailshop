@@ -1,6 +1,12 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const items = ["Home", "Products", "About", "Contact"];
+const items = [
+	{ text: "Home", path: "/" },
+	{ text: "Products", path: "/products" },
+	{ text: "About", path: "/about" },
+	{ text: "Contact", path: "/contact" },
+];
 
 const NavbarItems = () => {
 	return (
@@ -11,12 +17,21 @@ const NavbarItems = () => {
 						key={index}
 						className="w-full"
 					>
-						<a
-							href=""
-							className="py-2 px-5 hover:bg-gray-100 text-md font-semibold w-full inline-block items-center justify-center"
+						<NavLink
+							to={item.path}
+							className={({ isActive }) =>
+								isActive
+									? "py-4 px-5 hover:bg-gray-100 text-md font-semibold w-full flex items-center justify-center min-h-12 bg-gray-100"
+									: "py-4 px-5 hover:bg-gray-100 text-md font-semibold w-full flex items-center justify-center min-h-12"
+							}
+							// className={
+							// 	{ isActive }
+							// 		? "py-4 px-5 hover:bg-gray-100 text-md font-semibold w-full flex items-center justify-center min-h-12"
+							// 		: ""
+							// }
 						>
-							<span className="flex">{item}</span>
-						</a>
+							<span className="flex">{item.text}</span>
+						</NavLink>
 					</li>
 				);
 			})}

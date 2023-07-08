@@ -3,10 +3,8 @@ import Navbar from "./shared/Navbar/Navbar";
 
 const Header = () => {
 	return (
-		<header>
-			<nav>
-				<Navbar />
-			</nav>
+		<header className="border-b border-gray-100 ">
+			<Navbar />
 		</header>
 	);
 };

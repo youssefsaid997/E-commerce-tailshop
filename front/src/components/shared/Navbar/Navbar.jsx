@@ -4,18 +4,16 @@ import NavbarItems from "./NavbarItems";
 const Navbar = () => {
 	const [auth, setAuth] = useState(false);
 	return (
-		<div className="navbar bg-base-100">
+		<div className="navbar bg-base-100 p-0 min-h-0 px-2">
 			<div className="navbar-start">
 				<h1 className="text-lg font-bold text-black ">TailShop</h1>
 			</div>
 
 			<div className="navbar-end">
-				<ul className="flex items-center justify-between space-x-3 mx-4 max-sm:hidden">
+				<ul className="flex items-center justify-between  mx-4 max-lg:hidden">
 					<NavbarItems />
 				</ul>
-				<div className="sm:hidden max-sm:inline-block mx-4 py-2 px-4">
-					Toggle
-				</div>
+				<div className="lg:hidden mx-4 py-4 px-4">Toggle</div>
 				{auth ? (
 					<div>
 						<button className="btn btn-ghost btn-circle">
@@ -55,7 +53,19 @@ const Navbar = () => {
 						</button>
 					</div>
 				) : (
-					<button className="btn btn-primary">Log In</button>
+					<div className="flex items-center justify-between">
+						<button className="w-32 py-2 px-4 bg-black rounded-sm mx-2 text-white font-bold hover:bg-white hover:text-black border-black hover:border-black hover:border  box-border ">
+							<span>
+								<i className="fas fa-user mx-1"></i>Log In
+							</span>
+						</button>
+						<button className="w-32 py-2 px-4 bg-white rounded-sm mx-2 text-black font-bold hover:bg-black hover:text-white box-border border border-black">
+							<span>
+								<i className="fas fa-user-plus mx-1"></i>
+								Sign Up
+							</span>
+						</button>
+					</div>
 				)}
 			</div>
 		</div>
